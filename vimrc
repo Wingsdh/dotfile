@@ -87,6 +87,10 @@ Plugin 'tibabit/vim-templates'
 " 自动括号
 Plugin 'jiangmiao/auto-pairs'
 
+" git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
 
 
 " 插件列表结束
@@ -101,7 +105,6 @@ filetype plugin indent on
 " 禁止光标闪烁 终端闪烁没用
 set gcr=a:block-blinkoff0
 
-set guifont=Monaco:h14
 
 " 禁止显示滚动条
 set guioptions-=l
@@ -179,6 +182,9 @@ au GuiEnter * set t_vb=
 
 " >>
 " 查找
+
+" 设置ctrlsf 使用ag
+let g:ctrlsf_ackprg = 'ag' 
 
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
@@ -305,13 +311,14 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_server_use_vim_stdout = 0
 
 let g:ycm_python_interpreter_path = '/Users/handeng/opt/anaconda3/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'                        
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
@@ -406,6 +413,8 @@ else
     "colorscheme phd
 
 endif
+
+set guifont=Monaco:32
 
 hi Normal ctermbg=none
 
