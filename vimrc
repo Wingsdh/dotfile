@@ -91,6 +91,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'nvie/vim-flake8'
+
 
 
 " 插件列表结束
@@ -188,6 +190,7 @@ let g:ctrlsf_ackprg = 'ag'
 
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
+let g:ctrlsf_ignore_dir = ["env", "build"]
 
 " <<
 
@@ -203,6 +206,8 @@ let NERDTreeWinSize=28
 let NERDTreeHighlightCursorline=0
 "当前目录的设定
 let NERDTreeChDirMode = 2
+" 显示隐藏文件
+let NERDTreeShowHidden=1
 ""自动退出
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 "打开vim时自动打开
@@ -213,7 +218,7 @@ nmap <F3> :NERDTreeToggle<CR>
 " 删除文件时自动删除文件对应 buffer
 let NERDTreeAutoDeleteBuffer=1
 " 忽略一下文件的显示
-let NERDTreeIgnore=['\~$','\.swp']
+let NERDTreeIgnore=['\~$','\.swp', 'build', '__pycache__', 'env', 'dist', '.DS_Store']
 " 在终端启动vim时，共享NERDTree
 let g:nerdtree_tabs_open_on_console_startup=1
 " 自动修改根目录
