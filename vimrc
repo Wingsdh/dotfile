@@ -92,6 +92,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/syntastic'
+
+Plugin 'mechatroner/rainbow_csv'
+Plugin 'fisadev/vim-isort'
+Plugin 'klen/python-mode'
+
 
 
 
@@ -441,7 +447,14 @@ let g:tmpl_search_paths = ['~/.template']
 let g:tmpl_author_email = 'wingsdh@gmail.com'
 
 
+" Pathogen load
+filetype off
 
-" <<
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+
+" import 排序
+let g:vim_isort_map = '<C-i>'
 
 
